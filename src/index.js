@@ -4,11 +4,26 @@ import './index.css';
 import {Slider, Card, AppBar, Toolbar, Typography, IconButton} from '@material-ui/core';
 import Draggable from 'react-draggable';
 import {Menu} from '@material-ui/icons';
+import {Knob} from 'react-rotary-knob';
+import * as skins from 'react-rotary-knob-skin-pack';
+
+
+
+const knobStyle = {
+    width: "150px",
+    height: "150px"
+}
 
 
 class HomeView extends React.Component{
 
-    
+    state= {
+        value: 5
+    }
+
+    changeVolume(volume) {
+        this.setState({value:volume})
+    }
     
     //think of better name for key but will handle if sation will change up or down
     //the first condition checks if my station is within range
@@ -29,29 +44,10 @@ class HomeView extends React.Component{
     render(){
         return(
             <>
-            <div style={{flexGrow: 1, backgroundColor: 'purple', positon: "sticky", top: -5}}>
+            <div style={{flexGrow: 1, backgroundColor: '#7950C7', top: -5}}>
                 <h1
                 style={{textAlign: 'center'}}
                 >AVID FM Radio</h1>
-
-
-            {/* <AppBar
-            position="static"
-            // style={{backgroundColor: 'red'}}
-            disableGutters= {false}
-            >
-                <Toolbar
-                disableGutters= {true}
-                style={{backgroundColor: 'red', paddingTop: '10px', marginTop: '10px', position: 0}}
-                >
-                    <IconButton>
-                        <Menu/>
-                    </IconButton>
-                    <IconButton>
-                        <Typography>Yeet</Typography>
-                    </IconButton>
-                </Toolbar>
-                </AppBar> */}
             </div>
             <div
             style={{
@@ -65,15 +61,17 @@ class HomeView extends React.Component{
                     <div>
 
                         <Card
-                        style={{maxWidth: 300, minHeight: '300px'}}
+                        style={{maxWidth: 300, minHeight: '300px', borderColor: '#7950C7', borderWidth: '3px', backgroundColor: 'rgb(66, 66, 66)'}}
+                        variant='outlined'
                         >
-                                <p>hello people</p>
+                                <p>radio.station</p>
                         </Card>
                 </div>
                 </Draggable>
                 <Draggable>
                     <Card
-                    style={{maxWidth: 300, padding: '50px'}}
+                    style={{maxWidth: 300, padding: '50px', borderColor: '#7950C7', borderWidth: '3px', backgroundColor: 'rgb(66, 66, 66)'}}
+                    variant='outlined'
                     >
                     <Slider
                         defaultValue={5}
@@ -84,7 +82,14 @@ class HomeView extends React.Component{
                         max={10}
                         />
                         <br/>
-                        <p>this is where the hz adjuster would be</p>
+                        <Knob
+                        onChange={this.changeVolume.bind(this)}
+                        min={0}
+                        max={10}
+                        value={this.state.value}
+                        skin={skins.s12}
+                        style={knobStyle}
+                        />
                     </Card>
                 </Draggable>
             </div>
@@ -92,12 +97,6 @@ class HomeView extends React.Component{
         );
     }
 }
-
-const header = {
-    color: 'red',
-};
-
-
 
 ////////////////////////
 

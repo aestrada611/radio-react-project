@@ -13,6 +13,8 @@
     "react-bootstrap": "^1.6.1",
     "react-dom": "^17.0.2",
     "react-draggable": "^4.4.3",
+    "react-rotary-knob": "^1.1.8",
+    "react-rotary-knob-skin-pack": "^1.0.2",
     "react-scripts": "4.0.3",
     "web-vitals": "^1.0.1"
   },
