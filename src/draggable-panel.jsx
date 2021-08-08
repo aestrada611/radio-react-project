@@ -12,6 +12,13 @@ const dP = {
 	content: <DisplayPanel />,
 }
 
+// const cP = [
+// 	{ id: 'control panel', content: <ControlPanel /> },
+// 	{ id: 'display panel', content: <DisplayPanel /> },
+// ]
+
+// const getItems = () => Array.from(cP).map((x) => ({ x }))
+
 const reorder = (list, startIndex, endIndex) => {
 	const result = Array.from(list)
 	const [removed] = result.splice(startIndex, 1)
@@ -32,14 +39,18 @@ const getListStyle = (isDraggingOver) => ({
 
 const getItemStyle = (isDragging, draggableStyle) => ({
 	// userSelect: 'none',
-	background: isDragging ? 'lightgreen' : 'grey',
-	draggableStyle,
-	transition: 'background-color 0.2s ease',
-	backgroundColor: 'purple',
-	display: 'flex',
-	justifyContent: 'center',
-	alingContent: 'center',
-	padding: '0 30px 0',
+	// background: isDragging ? 'lightgreen' : 'grey',
+	// draggableStyle,
+	// transition: 'background-color 0.2s ease',
+	// backgroundColor: 'purple',
+	// display: 'flex',
+	// justifyContent: 'center',
+	// alingContent: 'center',
+	// padding: '0 30px 0',
+	...draggableStyle,
+	...(isDragging && {
+		background: 'rgb(235,235,235',
+	}),
 })
 
 export default class Panel extends React.Component {
@@ -75,7 +86,11 @@ export default class Panel extends React.Component {
 							flexDirection: 'column',
 						}}
 					>
-						<Droppable droppableId='droppable' direction='horizontal'>
+						<Droppable
+							droppableId='droppable'
+							direction='horizontal'
+							style={{ minWidth: '100%' }}
+						>
 							{(provided, snapshot) => (
 								<div
 									ref={provided.innerRef}
@@ -94,14 +109,18 @@ export default class Panel extends React.Component {
 												<div
 													ref={provided.innerRef}
 													{...provided.draggableProps}
-													{...provided.dragHandleProps}
+													// {...provided.dragHandleProps}
 													// isDragging={snapshot.isDragging}
 													style={getItemStyle(
 														snapshot.isDragging,
 														provided.draggableProps.style
 													)}
 												>
+													<h1 {...provided.dragHandleProps}>HelloWorld</h1>
 													{item.content}
+													{/* <div
+														style={{ width: '100%', backgroundColor: 'orange' }}
+													></div> */}
 												</div>
 											)}
 										</Draggable>
