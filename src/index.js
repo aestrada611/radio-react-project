@@ -1,7 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Panel from './draggable-panel'
+import Panel from './draggable-panel';
+import {Provider} from 'react-redux';
+import store from './redux/store';
+import { react } from '@babel/types';
+
+
 
 
 
@@ -70,6 +75,10 @@ class HomeView extends React.Component{
 
 
 ReactDOM.render(
-    <HomeView />,
+    <Provider store={store}>
+        <React.StrictMode>
+            <HomeView />
+        </React.StrictMode>
+    </Provider>,
     document.getElementById('root')
   );

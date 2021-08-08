@@ -15,6 +15,8 @@ export default class ControlPanel extends React.Component {
 					}}
 					variant='outlined'
 				>
+					fix for the dispaly panel would be using redux or lifting up state of
+					number and be ablee to pass it down as props
 					<p>radio.station</p>
 				</Card>
 			</div>
