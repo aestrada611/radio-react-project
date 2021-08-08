@@ -11,10 +11,16 @@ const knobStyle = {
 export default class ControlPanel extends React.Component {
 	state = {
 		value: 5,
+		station: 93.3,
 	}
 	changeVolume(volume) {
 		this.setState({ value: volume })
 	}
+
+	handleStationChange(station) {
+		this.setState({ station: station })
+	}
+
 	render() {
 		return (
 			<div>
@@ -29,12 +35,14 @@ export default class ControlPanel extends React.Component {
 					variant='outlined'
 				>
 					<Slider
-						defaultValue={5}
+						onChange={this.handleStationChange.bind(this)}
+						defaultValue={93.3}
 						valueLabelDisplay='on'
-						step={1}
+						step={0.2}
 						marks
-						min={0}
-						max={10}
+						min={87.9}
+						max={107.9}
+						track='off'
 					/>
 					<br />
 					<Knob
