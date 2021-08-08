@@ -12,13 +12,6 @@ const dP = {
 	content: <DisplayPanel />,
 }
 
-// const cP = [
-// 	{ id: 'control panel', content: <ControlPanel /> },
-// 	{ id: 'display panel', content: <DisplayPanel /> },
-// ]
-
-// const getItems = () => Array.from(cP).map((x) => ({ x }))
-
 const reorder = (list, startIndex, endIndex) => {
 	const result = Array.from(list)
 	const [removed] = result.splice(startIndex, 1)
@@ -46,7 +39,7 @@ const getItemStyle = (isDragging, draggableStyle) => ({
 	// display: 'flex',
 	// justifyContent: 'center',
 	// alingContent: 'center',
-	// padding: '0 30px 0',
+	padding: '0 30px 0',
 	...draggableStyle,
 	...(isDragging && {
 		background: 'rgb(235,235,235',

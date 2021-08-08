@@ -15,7 +15,7 @@ export default class ControlPanel extends React.Component {
 					}}
 					variant='outlined'
 				>
-					<p>radio.station</p>
+					<p>{this.props.station}</p>
 				</Card>
 			</div>
 		)

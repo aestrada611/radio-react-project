@@ -1,7 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Panel from './draggable-panel'
+import Panel from './draggable-panel';
+import {createStore} from 'redux'
+import {Provider} from 'react-redux'
+
+const initialState = {
+    value: 5,station: 93.3
+}
+
+function reducer(state = initialState, action) {
+    return state
+}
+const store = createStore(reducer);
+
 
 
 
@@ -70,6 +82,9 @@ class HomeView extends React.Component{
 
 
 ReactDOM.render(
-    <HomeView />,
+    <Provider store={store}>
+    <HomeView />
+    </Provider>
+    ,
     document.getElementById('root')
   );

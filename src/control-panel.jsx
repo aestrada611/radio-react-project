@@ -2,13 +2,14 @@ import React from 'react'
 import { Slider, Card } from '@material-ui/core'
 import { Knob } from 'react-rotary-knob'
 import * as skins from 'react-rotary-knob-skin-pack'
+import { connect } from 'react-redux'
 
 const knobStyle = {
 	width: '150px',
 	height: '150px',
 }
 
-export default class ControlPanel extends React.Component {
+class ControlPanel extends React.Component {
 	state = {
 		value: 5,
 		station: 93.3,
@@ -36,7 +37,7 @@ export default class ControlPanel extends React.Component {
 				>
 					<Slider
 						onChange={this.handleStationChange.bind(this)}
-						defaultValue={93.3}
+						defaultValue={this.props.station}
 						valueLabelDisplay='on'
 						step={0.2}
 						marks
@@ -49,7 +50,7 @@ export default class ControlPanel extends React.Component {
 						onChange={this.changeVolume.bind(this)}
 						min={0}
 						max={10}
-						value={this.state.value}
+						value={this.props.value}
 						skin={skins.s12}
 						style={knobStyle}
 					/>
@@ -58,3 +59,12 @@ export default class ControlPanel extends React.Component {
 		)
 	}
 }
+
+const mapStateToProps = (state) => ({
+	value: state.value,
+	station: state.station,
+})
+
+// export { ControlPanel, connect(mapsStateToProps)(Station)}
+
+export default connect(mapStateToProps)(ControlPanel)
