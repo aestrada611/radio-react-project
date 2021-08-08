@@ -5,20 +5,14 @@ import DisplayPanel from './display-panel'
 
 const cP = {
 	id: 'control panel',
-	content: <ControlPanel />,
+	content: (
+		<ControlPanel value={this.state.value} station={this.state.station} />
+	),
 }
 const dP = {
 	id: 'display panel',
-	content: <DisplayPanel />,
+	content: <DisplayPanel station={this.state.station} />,
 }
-
-// const cP = [
-// 	{ id: 'control panel', content: <ControlPanel /> },
-// 	{ id: 'display panel', content: <DisplayPanel /> },
-// ]
-
-// const getItems = () => Array.from(cP).map((x) => ({ x }))
-
 const reorder = (list, startIndex, endIndex) => {
 	const result = Array.from(list)
 	const [removed] = result.splice(startIndex, 1)
@@ -58,6 +52,8 @@ export default class Panel extends React.Component {
 		super(props)
 		this.state = {
 			items: [cP, dP],
+			value: 5,
+			station: 93.3,
 		}
 		this.onDragEnd = this.onDragEnd.bind(this)
 	}
@@ -118,9 +114,6 @@ export default class Panel extends React.Component {
 												>
 													<h1 {...provided.dragHandleProps}>HelloWorld</h1>
 													{item.content}
-													{/* <div
-														style={{ width: '100%', backgroundColor: 'orange' }}
-													></div> */}
 												</div>
 											)}
 										</Draggable>

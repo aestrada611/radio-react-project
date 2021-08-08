@@ -10,8 +10,8 @@ const knobStyle = {
 
 export default class ControlPanel extends React.Component {
 	state = {
-		value: 5,
-		station: 93.3,
+		value: this.props.value,
+		station: this.props.station,
 	}
 	changeVolume(volume) {
 		this.setState({ value: volume })
