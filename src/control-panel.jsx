@@ -14,12 +14,14 @@ class ControlPanel extends React.Component {
 		value: 5,
 		station: 93.3,
 	}
-	changeVolume(volume) {
-		this.setState({ value: volume })
+	changeVolume(value) {
+		this.setState({ value: value })
+		this.props.dispatch({ type: 'change volume' })
 	}
 
 	handleStationChange(station) {
 		this.setState({ station: station })
+		this.props.dispatch({ type: 'change station' })
 	}
 
 	render() {
@@ -43,7 +45,7 @@ class ControlPanel extends React.Component {
 						marks
 						min={87.9}
 						max={107.9}
-						track='off'
+						track={false}
 					/>
 					<br />
 					<Knob

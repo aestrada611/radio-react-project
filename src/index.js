@@ -6,11 +6,25 @@ import {createStore} from 'redux'
 import {Provider} from 'react-redux'
 
 const initialState = {
-    value: 5,station: 93.3
+    value: 10,station: 93.3
 }
 
 function reducer(state = initialState, action) {
-    return state
+    switch(action.type) {
+        case "change station":
+        return {
+            //here we would have the funvtion to change the station
+            station: state.station
+
+        }
+        case "change volume":
+            return{
+                value: state.value
+            }
+            default:
+                return state;
+    }
+    
 }
 const store = createStore(reducer);
 
