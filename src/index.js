@@ -1,20 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import {Slider, Card} from '@material-ui/core';
-// import Draggable from 'react-draggable';
-// import {Menu} from '@material-ui/icons';
-import {Knob} from 'react-rotary-knob';
-import * as skins from 'react-rotary-knob-skin-pack';
-import { DragDropContext, Droppable, Draggable,} from 'react-beautiful-dnd';
-import Column from './control-panel';
 import Panel from './draggable-panel'
 
 
 
 function Header(props) {
     return(
-        <div style={{flexGrow: 1, backgroundColor: '#7950C7'}}>
+        <div style={{backgroundColor: '#7950C7', textAlign: 'center', width: '100%', position: 'absolute', height: "10vh"}}>
                 <h1
                 style={{textAlign: 'center'}}
                 >AVID FM Radio</h1>
@@ -25,7 +18,7 @@ function Header(props) {
 function Footer(props) {
     return(
         <div>
-            <h1 style={{backgroundColor: "white", textAlign: 'center', width: '100%', position: 'absolute', height: "10vh"}}>Hello World</h1>
+            <h1 style={{backgroundColor: "white", textAlign: 'center', width: '100%', position: 'absolute', height: "10vh", bottom: '0'}}>Hello World</h1>
             {/* the view height here is related to the one for the view height of the body div on line 63 */}
         </div>
     )
@@ -33,12 +26,7 @@ function Footer(props) {
 
 
 class HomeView extends React.Component{
-    // state= {
-    //     value: 5
-    // }
-    // changeVolume(volume) {
-    //     this.setState({value:volume})
-    // }
+  
     //think of better name for key but will handle if sation will change up or down
     //the first condition checks if my station is within range
     handleStationChange(station, key) {
@@ -53,8 +41,6 @@ class HomeView extends React.Component{
         }
     }
     
-    
-    
     render(){
         return(
             <>
@@ -65,6 +51,10 @@ class HomeView extends React.Component{
                         flexDirection: 'row',
                         justifyContent: 'space-evenly',
                         minHeight: '80vh',
+                        width: '100%', 
+                        paddingTop: "202px"
+                        // marginTop: '30px',
+                        // minHeight: '100%',
                     }}
                     >
                         <Panel/>

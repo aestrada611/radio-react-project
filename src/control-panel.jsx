@@ -17,34 +17,36 @@ export default class ControlPanel extends React.Component {
 	}
 	render() {
 		return (
-			<Card
-				style={{
-					// maxWidth: 300,
-					padding: '50px',
-					borderColor: '#7950C7',
-					borderWidth: '3px',
-					backgroundColor: 'rgb(66, 66, 66)',
-				}}
-				variant='outlined'
-			>
-				<Slider
-					defaultValue={5}
-					valueLabelDisplay='on'
-					step={1}
-					marks
-					min={0}
-					max={10}
-				/>
-				<br />
-				<Knob
-					onChange={this.changeVolume.bind(this)}
-					min={0}
-					max={10}
-					value={this.state.value}
-					skin={skins.s12}
-					style={knobStyle}
-				/>
-			</Card>
+			<div>
+				<Card
+					style={{
+						minWidth: '45%',
+						padding: '50px',
+						borderColor: '#7950C7',
+						borderWidth: '3px',
+						backgroundColor: 'rgb(66, 66, 66)',
+					}}
+					variant='outlined'
+				>
+					<Slider
+						defaultValue={5}
+						valueLabelDisplay='on'
+						step={1}
+						marks
+						min={0}
+						max={10}
+					/>
+					<br />
+					<Knob
+						onChange={this.changeVolume.bind(this)}
+						min={0}
+						max={10}
+						value={this.state.value}
+						skin={skins.s12}
+						style={knobStyle}
+					/>
+				</Card>
+			</div>
 		)
 	}
 }
