@@ -6,30 +6,49 @@ import {createStore} from 'redux'
 import {Provider} from 'react-redux'
 
 const initialState = {
-    value: 7,station: 107.9
+    value: 5,
+    station: 93.3,
 }
 
 function reducer(state = initialState, action) {
+    const newState = {...state}
     switch(action.type) {
-        case "change station":
-        return {
-            //here we would have the funvtion to change the station
-            station: state.station
+        // case "change station":
+        // return {
+        //     //here we would have the funvtion to change the station
+        //     newState= state.value
 
-        }
+        // }
         case "change volume":
             return{
-                value: state.value
+                value: state.value,
+                station: state.station
             }
             default:
                 return state;
     }
     
 }
+
+// function reducer(state = initialState, action) {
+//     switch(action.type) {
+//         case "change station":
+//         return {
+//             ...state,
+//             station: action.payload
+
+//         }
+//         case "change volume":
+//             return{
+//                 ...state,
+//                 value: action.payload
+//             }
+//             default:
+//                 return state;
+//     }
+    
+// }
 const store = createStore(reducer);
-
-
-
 
 function Header(props) {
     return(

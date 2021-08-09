@@ -2,6 +2,7 @@ import React from 'react'
 import { Card } from '@material-ui/core'
 import { useSelector } from 'react-redux'
 
+//will i have to subscribe in order to update sation and volume
 export default function ControlPanel(props) {
 	const currentStation = useSelector((state) => state.station)
 	const currentVolume = useSelector((state) => state.value)

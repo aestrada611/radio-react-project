@@ -3,25 +3,22 @@ import { Slider, Card } from '@material-ui/core'
 import { Knob } from 'react-rotary-knob'
 import * as skins from 'react-rotary-knob-skin-pack'
 import { connect } from 'react-redux'
+// import { useSelector } from 'react-redux'
 
 const knobStyle = {
-	width: '150px',
-	height: '150px',
+	width: '100px',
+	height: '100px',
 }
 
 class ControlPanel extends React.Component {
-	state = {
-		value: 5,
-		station: 93.3,
-	}
-	changeVolume(value) {
-		this.setState({ value: value })
-		this.props.dispatch({ type: 'change volume' })
+	handleVolumeChange(value) {
+		// this.setState({ value: value })
+		this.props.dispatch({ type: 'change volume', payload: value })
 	}
 
 	handleStationChange(station) {
-		this.setState({ station: station })
-		this.props.dispatch({ type: 'change station' })
+		// this.setState({ station: station })
+		this.props.dispatch({ type: 'change station', payload: station })
 	}
 
 	render() {
@@ -30,7 +27,6 @@ class ControlPanel extends React.Component {
 				style={{
 					minWidth: '50vh',
 					minHeight: '50vh',
-					// padding: '50px',
 					borderColor: '#7950C7',
 					borderWidth: '3px',
 					backgroundColor: 'rgb(66, 66, 66)',
@@ -38,7 +34,7 @@ class ControlPanel extends React.Component {
 				variant='outlined'
 			>
 				<Slider
-					onChange={this.handleStationChange.bind(this)}
+					onChange={this.handleStationChange}
 					defaultValue={this.props.station}
 					valueLabelDisplay='on'
 					step={0.2}
@@ -49,10 +45,10 @@ class ControlPanel extends React.Component {
 				/>
 				<br />
 				<Knob
-					onChange={this.changeVolume.bind(this)}
+					onChange={this.handleVolumeChange}
 					min={0}
 					max={10}
-					value={this.props.value}
+					// value={this.props.value}
 					skin={skins.s12}
 					style={knobStyle}
 				/>
@@ -66,6 +62,12 @@ const mapStateToProps = (state) => ({
 	station: state.station,
 })
 
+const mapDispatchToProps = (dispatch) => {
+	return {
+		handleChange: () => dispatch({ type: 'change volume' }),
+	}
+}
+
 // export { ControlPanel, connect(mapsStateToProps)(Station)}
 
-export default connect(mapStateToProps)(ControlPanel)
+export default connect(mapStateToProps, mapDispatchToProps)(ControlPanel)
