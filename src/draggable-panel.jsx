@@ -22,8 +22,11 @@ const reorder = (list, startIndex, endIndex) => {
 const getListStyle = (isDraggingOver) => ({
 	// background: isDraggingOver ? 'lightblue' : 'lightgrey',
 	display: 'flex',
-	// flexDirection: 'row',
-	// alignContent: 'center',
+	flexDirection: 'row',
+	justifyContent: 'space-evenly',
+	// alignItems: 'center',
+	flexWrap: 'wrap',
+	alignContent: 'center',
 	// flexDirection: 'column',
 	transition: 'background-color 0.2s ease',
 	backgroundColor: `${(props) => (props.isDraggingOver ? 'skyblue' : 'white')}`,
@@ -32,15 +35,13 @@ const getListStyle = (isDraggingOver) => ({
 })
 
 const getItemStyle = (isDragging, draggableStyle) => ({
-	// userSelect: 'none',
 	// background: isDragging ? 'lightgreen' : 'grey',
 	draggableStyle,
 	// transition: 'background-color 0.2s ease',
-	// backgroundColor: 'purple',
 	// display: 'flex',
 	// justifyContent: 'center',
 	// alingContent: 'center',
-	padding: '0 50px 0',
+	padding: '10vh 0 0',
 	...draggableStyle,
 	// ...(isDragging && {
 	// 	background: 'rgb(235,235,235',
@@ -72,16 +73,17 @@ export default class Panel extends React.Component {
 
 	render() {
 		return (
-			<div style={{ width: '100vh', height: '100%' }}>
+			<div style={{ width: '100%', height: '100%' }}>
 				<DragDropContext onDragEnd={this.onDragEnd}>
 					<div
 						style={{
-							display: 'flex',
-							flexDirection: 'column',
-							justifyContent: 'center',
-							alignItems: 'center',
+							// display: 'flex',
+							// flexDirection: 'column',
+							// justifyContent: 'center',
+							// alignItems: 'center',
 							minWidth: '100%',
 							minHeight: '100%',
+							// flexWrap: 'wrap',
 						}}
 					>
 						<Droppable
@@ -117,9 +119,12 @@ export default class Panel extends React.Component {
 													<div
 														{...provided.dragHandleProps}
 														style={{
-															border: 'medium solid #7950C7',
-															backgroundColor: 'orange',
-															width: '100%',
+															border: 'medium solid clear',
+															backgroundColor: 'clear',
+															width: '25%',
+															borderRadius: '25px',
+															textAlign: 'center',
+															color: 'orangered',
 														}}
 													>
 														Drag Me
