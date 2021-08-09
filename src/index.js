@@ -47,7 +47,9 @@ function Footer(props) {
 				color: 'orangered',
 			}}
 		>
-			<p>Hello World</p>
+			<p>
+				<strong>Thank You For The Opportunity</strong>
+			</p>
 			<div>
 				<a href='https://github.com/aestrada611'>
 					<GitHubIcon fontSize='large' color='action' />

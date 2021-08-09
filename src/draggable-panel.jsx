@@ -35,17 +35,9 @@ const getListStyle = (isDraggingOver) => ({
 })
 
 const getItemStyle = (isDragging, draggableStyle) => ({
-	// background: isDragging ? 'lightgreen' : 'grey',
 	draggableStyle,
-	// transition: 'background-color 0.2s ease',
-	// display: 'flex',
-	// justifyContent: 'center',
-	// alingContent: 'center',
 	padding: '10vh 0 0',
 	...draggableStyle,
-	// ...(isDragging && {
-	// 	background: 'rgb(235,235,235',
-	// }),
 })
 
 export default class Panel extends React.Component {
@@ -130,9 +122,6 @@ export default class Panel extends React.Component {
 														Drag Me
 													</div>
 													{item.content}
-													{/* <div
-														style={{ width: '100%', backgroundColor: 'orange' }}
-													></div> */}
 												</div>
 											)}
 										</Draggable>
