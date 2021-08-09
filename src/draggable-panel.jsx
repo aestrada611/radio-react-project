@@ -28,7 +28,7 @@ const getListStyle = (isDraggingOver) => ({
 	transition: 'background-color 0.2s ease',
 	backgroundColor: `${(props) => (props.isDraggingOver ? 'skyblue' : 'white')}`,
 	flexGrow: '1',
-	paddingTop: '50px',
+	paddingTop: '100px',
 })
 
 const getItemStyle = (isDragging, draggableStyle) => ({
@@ -42,9 +42,9 @@ const getItemStyle = (isDragging, draggableStyle) => ({
 	// alingContent: 'center',
 	padding: '0 50px 0',
 	...draggableStyle,
-	...(isDragging && {
-		background: 'rgb(235,235,235',
-	}),
+	// ...(isDragging && {
+	// 	background: 'rgb(235,235,235',
+	// }),
 })
 
 export default class Panel extends React.Component {
@@ -114,7 +114,16 @@ export default class Panel extends React.Component {
 														provided.draggableProps.style
 													)}
 												>
-													<h1 {...provided.dragHandleProps}>HelloWorld</h1>
+													<div
+														{...provided.dragHandleProps}
+														style={{
+															border: 'medium solid #7950C7',
+															backgroundColor: 'orange',
+															width: '100%',
+														}}
+													>
+														Drag Me
+													</div>
 													{item.content}
 													{/* <div
 														style={{ width: '100%', backgroundColor: 'orange' }}

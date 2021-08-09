@@ -26,38 +26,37 @@ class ControlPanel extends React.Component {
 
 	render() {
 		return (
-			<div>
-				<Card
-					style={{
-						minWidth: '45%',
-						padding: '50px',
-						borderColor: '#7950C7',
-						borderWidth: '3px',
-						backgroundColor: 'rgb(66, 66, 66)',
-					}}
-					variant='outlined'
-				>
-					<Slider
-						onChange={this.handleStationChange.bind(this)}
-						defaultValue={this.props.station}
-						valueLabelDisplay='on'
-						step={0.2}
-						marks
-						min={87.9}
-						max={107.9}
-						track={false}
-					/>
-					<br />
-					<Knob
-						onChange={this.changeVolume.bind(this)}
-						min={0}
-						max={10}
-						value={this.props.value}
-						skin={skins.s12}
-						style={knobStyle}
-					/>
-				</Card>
-			</div>
+			<Card
+				style={{
+					minWidth: '50vh',
+					minHeight: '50vh',
+					// padding: '50px',
+					borderColor: '#7950C7',
+					borderWidth: '3px',
+					backgroundColor: 'rgb(66, 66, 66)',
+				}}
+				variant='outlined'
+			>
+				<Slider
+					onChange={this.handleStationChange.bind(this)}
+					defaultValue={this.props.station}
+					valueLabelDisplay='on'
+					step={0.2}
+					marks
+					min={87.9}
+					max={107.9}
+					track={false}
+				/>
+				<br />
+				<Knob
+					onChange={this.changeVolume.bind(this)}
+					min={0}
+					max={10}
+					value={this.props.value}
+					skin={skins.s12}
+					style={knobStyle}
+				/>
+			</Card>
 		)
 	}
 }
