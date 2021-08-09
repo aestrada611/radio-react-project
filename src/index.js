@@ -61,8 +61,6 @@ function Footer(props) {
 }
 
 class HomeView extends React.Component {
-	//think of better name for key but will handle if sation will change up or down
-	//the first condition checks if my station is within range
 	handleStationChange(station, key) {
 		if (station < 87.9 || station > 107.9) {
 			return
@@ -73,7 +71,6 @@ class HomeView extends React.Component {
 			}
 		}
 	}
-
 	render() {
 		return (
 			<div style={{ minHeight: '100%', position: 'relative' }}>
