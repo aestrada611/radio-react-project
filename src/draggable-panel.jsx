@@ -82,6 +82,7 @@ export default class Panel extends React.Component {
 							alignItems: 'center',
 							minWidth: '100%',
 							minHeight: '100%',
+							// flexWrap: 'wrap',
 						}}
 					>
 						<Droppable
@@ -117,9 +118,12 @@ export default class Panel extends React.Component {
 													<div
 														{...provided.dragHandleProps}
 														style={{
-															border: 'medium solid #7950C7',
-															backgroundColor: 'orange',
-															width: '100%',
+															border: 'medium solid clear',
+															backgroundColor: 'clear',
+															width: '25%',
+															borderRadius: '25px',
+															textAlign: 'center',
+															color: 'orangered',
 														}}
 													>
 														Drag Me
