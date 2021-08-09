@@ -10,7 +10,7 @@ export default function ControlPanel(props) {
 			<Card
 				style={{
 					minWidth: '45%',
-					minHeight: '300px',
+					// minHeight: '300px',
 					borderColor: '#7950C7',
 					borderWidth: '3px',
 					backgroundColor: 'rgb(66, 66, 66)',

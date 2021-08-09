@@ -28,18 +28,19 @@ const getListStyle = (isDraggingOver) => ({
 	transition: 'background-color 0.2s ease',
 	backgroundColor: `${(props) => (props.isDraggingOver ? 'skyblue' : 'white')}`,
 	flexGrow: '1',
+	paddingTop: '50px',
 })
 
 const getItemStyle = (isDragging, draggableStyle) => ({
 	// userSelect: 'none',
 	// background: isDragging ? 'lightgreen' : 'grey',
-	// draggableStyle,
+	draggableStyle,
 	// transition: 'background-color 0.2s ease',
 	// backgroundColor: 'purple',
 	// display: 'flex',
 	// justifyContent: 'center',
 	// alingContent: 'center',
-	padding: '0 30px 0',
+	padding: '0 50px 0',
 	...draggableStyle,
 	...(isDragging && {
 		background: 'rgb(235,235,235',
@@ -71,12 +72,16 @@ export default class Panel extends React.Component {
 
 	render() {
 		return (
-			<div style={{ width: '100vh' }}>
+			<div style={{ width: '100vh', height: '100%' }}>
 				<DragDropContext onDragEnd={this.onDragEnd}>
 					<div
 						style={{
 							display: 'flex',
 							flexDirection: 'column',
+							justifyContent: 'center',
+							alignItems: 'center',
+							minWidth: '100%',
+							minHeight: '100%',
 						}}
 					>
 						<Droppable

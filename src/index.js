@@ -6,7 +6,7 @@ import {createStore} from 'redux'
 import {Provider} from 'react-redux'
 
 const initialState = {
-    value: 10,station: 93.3
+    value: 7,station: 107.9
 }
 
 function reducer(state = initialState, action) {
@@ -33,10 +33,10 @@ const store = createStore(reducer);
 
 function Header(props) {
     return(
-        <div style={{backgroundColor: '#7950C7', textAlign: 'center', width: '100%', position: 'absolute', height: "10vh"}}>
-                <h1
-                style={{textAlign: 'center'}}
-                >AVID FM Radio</h1>
+        <div style={{backgroundColor: '#7950C7', width: '100%', position: 'absolute', height: 'auto'}}>
+                <h1>
+                    <span style ={{textAlign: 'left'}}>Icon</span>
+                    <span style={{textAlign: 'center'}}></span>AVID FM Radio</h1>
         </div>
     )
 }
@@ -44,7 +44,7 @@ function Header(props) {
 function Footer(props) {
     return(
         <div>
-            <h1 style={{backgroundColor: "white", textAlign: 'center', width: '100%', position: 'absolute', height: "10vh", bottom: '0'}}>Hello World</h1>
+            <h1 style={{backgroundColor: "orange", textAlign: 'center', width: '100%', bottom: 0, height: 'auto', left: 0, paddingBottom: '10px', margin: '0px'}}>Hello World</h1>
             {/* the view height here is related to the one for the view height of the body div on line 63 */}
         </div>
     )
@@ -69,25 +69,29 @@ class HomeView extends React.Component{
     
     render(){
         return(
-            <>
+            <div style={{minHeight: '100%', position: 'relative'}}>
                 <Header/>
                     <div
                     style={{
                         display: "flex",
                         flexDirection: 'row',
                         justifyContent: 'space-evenly',
-                        minHeight: '80vh',
-                        width: '100%', 
-                        paddingTop: "202px"
+                        alignContent: 'center',
+                        minHeight: '100vh',
+                        width: '100%',
+                        // height: '80vh', 
+                        margin: 0,
+                        // paddingTop: "202px"
                         // marginTop: '30px',
                         // minHeight: '100%',
+                        backgroundColor: '#212121'
                     }}
                     >
                         <Panel/>
                     </div>
                 
-                <Footer/>
-            </>
+                <Footer style={{backgroundColor: "orange", textAlign: 'center', width: '100%', position: 'absolute', bottom: 0, height: 'auto', left: 0}}/>
+            </div>
         );
     }
 }
