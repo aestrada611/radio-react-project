@@ -2,13 +2,11 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import './index.css'
 import Panel from './draggable-panel'
-import { createStore } from 'redux'
 import { Provider } from 'react-redux'
-import reducer from './store/reducer'
 import GitHubIcon from '@material-ui/icons/GitHub'
 import LinkedInIcon from '@material-ui/icons/LinkedIn'
+import store from './store/store'
 
-const store = createStore(reducer)
 
 function Header(props) {
 	return (
@@ -63,16 +61,6 @@ function Footer(props) {
 }
 
 class HomeView extends React.Component {
-	handleStationChange(station, key) {
-		if (station < 87.9 || station > 107.9) {
-			return
-		} else {
-			if (key === 'up') {
-			} else {
-				//here would be the logic for setting the station
-			}
-		}
-	}
 	render() {
 		return (
 			<div style={{ minHeight: '100%', position: 'relative' }}>

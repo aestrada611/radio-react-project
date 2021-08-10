@@ -5,18 +5,11 @@ import Button from '@material-ui/core/Button'
 
 export default function ControlPanel(props) {
 	const currentStation = useSelector((state) => state.station.station)
-
-	console.log('current', currentStation)
-	//const savedStations = [null, null, null, null, null, null]
 	const [savedStations, setSavedStations] = useState([])
-
-	console.log(savedStations)
-
 	const handleClick = (num) => {
 		const matchingValue = savedStations.find(
 			(x) => x.currentStation === currentStation
 		)
-
 		const myStation = {
 			id: num,
 			currentStation,
@@ -24,7 +17,7 @@ export default function ControlPanel(props) {
 		if (!matchingValue) {
 			setSavedStations((arr) => [...arr, myStation])
 		} else {
-			alert('station already favorited')
+			alert('station already saved')
 		}
 	}
 
@@ -36,11 +29,8 @@ export default function ControlPanel(props) {
 				borderColor: 'clear',
 				borderWidth: '3px',
 				backgroundColor: 'rgb(66, 66, 66)',
-				// textAlign: 'center',
 				display: 'flex',
 				flexDirection: 'column',
-				// justifyContent: 'center',
-				// alignContent: 'center',
 				boxShadow: '10px 10px',
 				borderRadius: '25px',
 			}}
@@ -78,7 +68,7 @@ export default function ControlPanel(props) {
 								style={{ color: 'orangered', borderColor: 'orangered' }}
 								onClick={() => handleClick(1)}
 							>
-								Save Station
+								{savedStations.find((x) => x.currentStation === 1)}
 							</Button>
 						</td>
 						<td>
@@ -86,15 +76,6 @@ export default function ControlPanel(props) {
 								variant='outlined'
 								style={{ color: 'orangered', borderColor: 'orangered' }}
 								onClick={() => handleClick(2)}
-								// onClick={() => {
-								// 	let check = savedStations.filter((x) => x === currentStation)
-								// 	if (check.length >= 1) {
-								// 		return
-								// 	} else {
-								// 		savedStations[1] = currentStation
-								// 	}
-								// 	// savedStations.push(currentStation)
-								// }}
 							>
 								Save Station
 							</Button>

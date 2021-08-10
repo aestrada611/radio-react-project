@@ -20,14 +20,11 @@ const reorder = (list, startIndex, endIndex) => {
 }
 
 const getListStyle = (isDraggingOver) => ({
-	// background: isDraggingOver ? 'lightblue' : 'lightgrey',
 	display: 'flex',
 	flexDirection: 'row',
 	justifyContent: 'space-evenly',
-	// alignItems: 'center',
 	flexWrap: 'wrap',
 	alignContent: 'center',
-	// flexDirection: 'column',
 	transition: 'background-color 0.2s ease',
 	backgroundColor: `${(props) => (props.isDraggingOver ? 'skyblue' : 'white')}`,
 	flexGrow: '1',
@@ -69,13 +66,8 @@ export default class Panel extends React.Component {
 				<DragDropContext onDragEnd={this.onDragEnd}>
 					<div
 						style={{
-							// display: 'flex',
-							// flexDirection: 'column',
-							// justifyContent: 'center',
-							// alignItems: 'center',
 							minWidth: '100%',
 							minHeight: '100%',
-							// flexWrap: 'wrap',
 						}}
 					>
 						<Droppable
@@ -95,14 +87,11 @@ export default class Panel extends React.Component {
 											key={item.id}
 											draggableId={item.id}
 											index={index}
-											// disableInteractiveElementBlocking
 										>
 											{(provided, snapshot) => (
 												<div
 													ref={provided.innerRef}
 													{...provided.draggableProps}
-													// {...provided.dragHandleProps}
-													// isDragging={snapshot.isDragging}
 													style={getItemStyle(
 														snapshot.isDragging,
 														provided.draggableProps.style
