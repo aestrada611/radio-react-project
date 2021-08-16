@@ -11,13 +11,6 @@ const knobStyle = {
 	height: '100px',
 }
 
-// class ControlPanel extends React.Component {
-// 	state = {
-// 		value: 5,
-// 	}
-// const changeVolume = (value) => {
-// 	this.setState({ value: value })
-// }
 function ControlPanel() {
 	const dispatch = useDispatch()
 	const currentStation = useSelector((state) => state.station.station)
@@ -55,7 +48,6 @@ function ControlPanel() {
 				// onChange={this.changeVolume.bind(this)}
 				min={0}
 				max={10}
-				// value={this.state.value}
 				skin={skins.s10}
 				style={knobStyle}
 			/>

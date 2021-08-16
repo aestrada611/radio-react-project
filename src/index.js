@@ -7,7 +7,6 @@ import GitHubIcon from '@material-ui/icons/GitHub'
 import LinkedInIcon from '@material-ui/icons/LinkedIn'
 import store from './store/store'
 
-
 function Header(props) {
 	return (
 		<div style={{ display: 'flex', justifyContent: 'center' }}>

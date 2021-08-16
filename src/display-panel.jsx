@@ -7,7 +7,6 @@ export default function ControlPanel(props) {
 	const currentStation = useSelector((state) => state.station.station)
 
 	console.log('current', currentStation)
-	// const savedStations = [null, null, null, null, null, null]
 	// const [savedStations, setSavedStations] = useState([])
 	// const savedStations = useState([])
 	const savedStations = useState([null, null, null, null, null, null])
