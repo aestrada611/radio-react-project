@@ -4,6 +4,7 @@ import { Knob } from 'react-rotary-knob'
 import * as skins from 'react-rotary-knob-skin-pack'
 import { useDispatch } from 'react-redux'
 import { changeStation } from './store/actions/stationAction'
+import { useSelector } from 'react-redux'
 
 const knobStyle = {
 	width: '100px',
@@ -17,8 +18,9 @@ const knobStyle = {
 // const changeVolume = (value) => {
 // 	this.setState({ value: value })
 // }
-function ControlPanel(handleStationChange) {
+function ControlPanel() {
 	const dispatch = useDispatch()
+	const currentStation = useSelector((state) => state.station.station)
 	// const [val, setVal] = useState('')
 	return (
 		<Card
@@ -39,7 +41,8 @@ function ControlPanel(handleStationChange) {
 		>
 			<Slider
 				onChange={(e, val) => dispatch(changeStation(val))}
-				defaultValue={93.3}
+				// defaultValue={getState()}
+				defaultValue={currentStation}
 				valueLabelDisplay='on'
 				step={0.2}
 				marks

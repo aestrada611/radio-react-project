@@ -7,26 +7,27 @@ export default function ControlPanel(props) {
 	const currentStation = useSelector((state) => state.station.station)
 
 	console.log('current', currentStation)
-	//const savedStations = [null, null, null, null, null, null]
-	const [savedStations, setSavedStations] = useState([])
+	// const savedStations = [null, null, null, null, null, null]
+	// const [savedStations, setSavedStations] = useState([])
+	// const savedStations = useState([])
+	const savedStations = useState([null, null, null, null, null, null])
 
+	const isStationSaved = useState([false, false, false, false, false, false])
 	console.log(savedStations)
 
-	const handleClick = (num) => {
-		const matchingValue = savedStations.find(
-			(x) => x.currentStation === currentStation
+	const handleClick = (savedSlot) => {
+		let checkDuplicate = savedStations[0].filter(
+			(value) => value === currentStation
 		)
-
-		const myStation = {
-			id: num,
-			currentStation,
-		}
-		if (!matchingValue) {
-			setSavedStations((arr) => [...arr, myStation])
+		if (checkDuplicate.length >= 1) {
+			return alert('This Station is already saved')
 		} else {
-			alert('station already favorited')
+			savedStations[0][savedSlot] = currentStation
+			isStationSaved[0][savedSlot] = true
 		}
 	}
+
+	const handleStationChange = (savedStations, savedSlot) => {}
 
 	return (
 		<Card
@@ -36,11 +37,8 @@ export default function ControlPanel(props) {
 				borderColor: 'clear',
 				borderWidth: '3px',
 				backgroundColor: 'rgb(66, 66, 66)',
-				// textAlign: 'center',
 				display: 'flex',
 				flexDirection: 'column',
-				// justifyContent: 'center',
-				// alignContent: 'center',
 				boxShadow: '10px 10px',
 				borderRadius: '25px',
 			}}
@@ -73,71 +71,122 @@ export default function ControlPanel(props) {
 				<table>
 					<tr>
 						<td>
-							<Button
-								variant='outlined'
-								style={{ color: 'orangered', borderColor: 'orangered' }}
-								onClick={() => handleClick(1)}
-							>
-								Save Station
-							</Button>
+							{isStationSaved[0][0] ? (
+								<Button
+									variant='outlined'
+									style={{ color: 'orangered', borderColor: 'orangered' }}
+									// onClick={() => handleClick(0)}
+								>
+									{savedStations[0][0]}
+								</Button>
+							) : (
+								<Button
+									variant='outlined'
+									style={{ color: 'orangered', borderColor: 'orangered' }}
+									onClick={() => handleClick(0)}
+								>
+									Save Station
+								</Button>
+							)}
 						</td>
 						<td>
-							<Button
-								variant='outlined'
-								style={{ color: 'orangered', borderColor: 'orangered' }}
-								onClick={() => handleClick(2)}
-								// onClick={() => {
-								// 	let check = savedStations.filter((x) => x === currentStation)
-								// 	if (check.length >= 1) {
-								// 		return
-								// 	} else {
-								// 		savedStations[1] = currentStation
-								// 	}
-								// 	// savedStations.push(currentStation)
-								// }}
-							>
-								Save Station
-							</Button>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<Button
-								variant='outlined'
-								style={{ color: 'orangered', borderColor: 'orangered' }}
-								onClick={() => handleClick(3)}
-							>
-								Save Station
-							</Button>
-						</td>
-						<td>
-							<Button
-								variant='outlined'
-								style={{ color: 'orangered', borderColor: 'orangered' }}
-								onClick={() => handleClick(4)}
-							>
-								Save Station
-							</Button>
+							{isStationSaved[0][1] ? (
+								<Button
+									variant='outlined'
+									style={{ color: 'orangered', borderColor: 'orangered' }}
+									// onClick={() => handleClick(0)}
+								>
+									{savedStations[0][1]}
+								</Button>
+							) : (
+								<Button
+									variant='outlined'
+									style={{ color: 'orangered', borderColor: 'orangered' }}
+									onClick={() => handleClick(1)}
+								>
+									Save Station
+								</Button>
+							)}
 						</td>
 					</tr>
 					<tr>
 						<td>
-							<Button
-								variant='outlined'
-								style={{ color: 'orangered', borderColor: 'orangered' }}
-								onClick={() => handleClick(5)}
-							>
-								Save Station
-							</Button>
+							{isStationSaved[0][2] ? (
+								<Button
+									variant='outlined'
+									style={{ color: 'orangered', borderColor: 'orangered' }}
+									// onClick={() => handleClick(0)}
+								>
+									{savedStations[0][2]}
+								</Button>
+							) : (
+								<Button
+									variant='outlined'
+									style={{ color: 'orangered', borderColor: 'orangered' }}
+									onClick={() => handleClick(2)}
+								>
+									Save Station
+								</Button>
+							)}
 						</td>
 						<td>
-							<Button
-								variant='outlined'
-								style={{ color: 'orangered', borderColor: 'orangered' }}
-								onClick={() => handleClick(6)}
-							>
-								Save Station
-							</Button>
+							{isStationSaved[0][3] ? (
+								<Button
+									variant='outlined'
+									style={{ color: 'orangered', borderColor: 'orangered' }}
+									// onClick={() => handleClick(0)}
+								>
+									{savedStations[0][3]}
+								</Button>
+							) : (
+								<Button
+									variant='outlined'
+									style={{ color: 'orangered', borderColor: 'orangered' }}
+									onClick={() => handleClick(3)}
+								>
+									Save Station
+								</Button>
+							)}
+						</td>
+					</tr>
+					<tr>
+						<td>
+							{isStationSaved[0][4] ? (
+								<Button
+									variant='outlined'
+									style={{ color: 'orangered', borderColor: 'orangered' }}
+									// onClick={() => handleClick(0)}
+								>
+									{savedStations[0][4]}
+								</Button>
+							) : (
+								<Button
+									variant='outlined'
+									style={{ color: 'orangered', borderColor: 'orangered' }}
+									onClick={() => handleClick(4)}
+								>
+									Save Station
+								</Button>
+							)}
+						</td>
+						<td>
+							{isStationSaved[0][5] ? (
+								<Button
+									variant='outlined'
+									style={{ color: 'orangered', borderColor: 'orangered' }}
+									// onClick={() => handleClick(0)}
+								>
+									{savedStations[0][5]}
+								</Button>
+							) : (
+								<Button
+									variant='outlined'
+									style={{ color: 'orangered', borderColor: 'orangered' }}
+									onClick={() => handleClick(5)}
+								>
+									Save Station
+								</Button>
+							)}
 						</td>
 					</tr>
 				</table>
