@@ -2,9 +2,12 @@ import React, { useState } from 'react'
 import { Card } from '@material-ui/core'
 import { useSelector } from 'react-redux'
 import Button from '@material-ui/core/Button'
+import { changeStation } from './store/actions/stationAction'
+import { useDispatch } from 'react-redux'
 
 export default function ControlPanel(props) {
 	const currentStation = useSelector((state) => state.station.station)
+	const dispatch = useDispatch()
 
 	console.log('current', currentStation)
 	// const [savedStations, setSavedStations] = useState([])
@@ -27,7 +30,8 @@ export default function ControlPanel(props) {
 	}
 
 	const handleStationChange = (savedSlot) => {
-		return console.log(savedStations[0][savedSlot])
+		dispatch(changeStation(savedStations[0][savedSlot]))
+		// return console.log(dispatch(changeStation(val)))
 	}
 
 	return (
@@ -175,7 +179,7 @@ export default function ControlPanel(props) {
 								<Button
 									variant='outlined'
 									style={{ color: 'orangered', borderColor: 'orangered' }}
-									onClick={() => handleClick(5)}
+									onClick={() => handleStationChange(5)}
 								>
 									{savedStations[0][5]}
 								</Button>

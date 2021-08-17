@@ -35,7 +35,7 @@ function ControlPanel() {
 			<Slider
 				onChange={(e, val) => dispatch(changeStation(val))}
 				// defaultValue={getState()}
-				defaultValue={currentStation}
+				value={currentStation}
 				valueLabelDisplay='on'
 				step={0.2}
 				marks
