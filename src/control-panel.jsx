@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Card, Slider } from '@material-ui/core'
 import { Knob } from 'react-rotary-knob'
 import * as skins from 'react-rotary-knob-skin-pack'

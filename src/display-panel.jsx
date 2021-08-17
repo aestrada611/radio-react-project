@@ -26,7 +26,9 @@ export default function ControlPanel(props) {
 		}
 	}
 
-	const handleStationChange = (savedStations, savedSlot) => {}
+	const handleStationChange = (savedSlot) => {
+		return console.log(savedStations[0][savedSlot])
+	}
 
 	return (
 		<Card
@@ -74,7 +76,7 @@ export default function ControlPanel(props) {
 								<Button
 									variant='outlined'
 									style={{ color: 'orangered', borderColor: 'orangered' }}
-									// onClick={() => handleClick(0)}
+									onClick={() => handleStationChange(0)}
 								>
 									{savedStations[0][0]}
 								</Button>
@@ -93,7 +95,7 @@ export default function ControlPanel(props) {
 								<Button
 									variant='outlined'
 									style={{ color: 'orangered', borderColor: 'orangered' }}
-									// onClick={() => handleClick(0)}
+									onClick={() => handleStationChange(1)}
 								>
 									{savedStations[0][1]}
 								</Button>
@@ -114,7 +116,7 @@ export default function ControlPanel(props) {
 								<Button
 									variant='outlined'
 									style={{ color: 'orangered', borderColor: 'orangered' }}
-									// onClick={() => handleClick(0)}
+									onClick={() => handleStationChange(2)}
 								>
 									{savedStations[0][2]}
 								</Button>
@@ -133,7 +135,7 @@ export default function ControlPanel(props) {
 								<Button
 									variant='outlined'
 									style={{ color: 'orangered', borderColor: 'orangered' }}
-									// onClick={() => handleClick(0)}
+									onClick={() => handleStationChange(3)}
 								>
 									{savedStations[0][3]}
 								</Button>
@@ -154,7 +156,7 @@ export default function ControlPanel(props) {
 								<Button
 									variant='outlined'
 									style={{ color: 'orangered', borderColor: 'orangered' }}
-									// onClick={() => handleClick(0)}
+									onClick={() => handleStationChange(4)}
 								>
 									{savedStations[0][4]}
 								</Button>
@@ -173,7 +175,7 @@ export default function ControlPanel(props) {
 								<Button
 									variant='outlined'
 									style={{ color: 'orangered', borderColor: 'orangered' }}
-									// onClick={() => handleClick(0)}
+									onClick={() => handleClick(5)}
 								>
 									{savedStations[0][5]}
 								</Button>
