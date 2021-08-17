@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Card } from '@material-ui/core'
 import { useSelector } from 'react-redux'
 import Button from '@material-ui/core/Button'
@@ -17,6 +17,10 @@ export default function ControlPanel(props) {
 	const isStationSaved = useState([false, false, false, false, false, false])
 	console.log(savedStations)
 
+	const [, updateState] = useState()
+	const forceUpdate = React.useCallback(() => updateState({}), [])
+
+	// useEffect(() => {})
 	const handleClick = (savedSlot) => {
 		let checkDuplicate = savedStations[0].filter(
 			(value) => value === currentStation
@@ -26,8 +30,12 @@ export default function ControlPanel(props) {
 		} else {
 			savedStations[0][savedSlot] = currentStation
 			isStationSaved[0][savedSlot] = true
+			// useEffect(() => {})
+			forceUpdate()
 		}
 	}
+
+	// useEffect(() => {})
 
 	const handleStationChange = (savedSlot) => {
 		dispatch(changeStation(savedStations[0][savedSlot]))
