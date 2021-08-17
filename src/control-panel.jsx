@@ -1,24 +1,19 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Card, Slider } from '@material-ui/core'
 import { Knob } from 'react-rotary-knob'
 import * as skins from 'react-rotary-knob-skin-pack'
 import { useDispatch } from 'react-redux'
 import { changeStation } from './store/actions/stationAction'
+import { useSelector } from 'react-redux'
 
 const knobStyle = {
 	width: '100px',
 	height: '100px',
 }
 
-// class ControlPanel extends React.Component {
-// 	state = {
-// 		value: 5,
-// 	}
-// const changeVolume = (value) => {
-// 	this.setState({ value: value })
-// }
-function ControlPanel(handleStationChange) {
+function ControlPanel() {
 	const dispatch = useDispatch()
+	const currentStation = useSelector((state) => state.station.station)
 	// const [val, setVal] = useState('')
 	return (
 		<Card
@@ -39,7 +34,8 @@ function ControlPanel(handleStationChange) {
 		>
 			<Slider
 				onChange={(e, val) => dispatch(changeStation(val))}
-				defaultValue={93.3}
+				// defaultValue={getState()}
+				defaultValue={currentStation}
 				valueLabelDisplay='on'
 				step={0.2}
 				marks
@@ -52,7 +48,6 @@ function ControlPanel(handleStationChange) {
 				// onChange={this.changeVolume.bind(this)}
 				min={0}
 				max={10}
-				// value={this.state.value}
 				skin={skins.s10}
 				style={knobStyle}
 			/>
