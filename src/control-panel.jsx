@@ -7,31 +7,29 @@ import { changeStation } from './store/actions/stationAction'
 import { useSelector } from 'react-redux'
 
 const knobStyle = {
-	width: '100px',
-	height: '100px',
+	width: '12em',
+	height: '12em',
+}
+
+const cardStyle = {
+	width: '25em',
+	height: '25em',
+	borderColor: 'clear',
+	borderWidth: '3px',
+	backgroundColor: 'rgb(66, 66, 66)',
+	boxShadow: '10px 10px',
+	display: 'flex',
+	flexDirection: 'column',
+	justifyContent: 'space-evenly',
+	alignItems: 'center',
+	borderRadius: '25px',
 }
 
 function ControlPanel() {
 	const dispatch = useDispatch()
 	const currentStation = useSelector((state) => state.station.station)
-	// const [val, setVal] = useState('')
 	return (
-		<Card
-			style={{
-				minWidth: '50vh',
-				minHeight: '50vh',
-				borderColor: 'clear',
-				borderWidth: '3px',
-				backgroundColor: 'rgb(66, 66, 66)',
-				boxShadow: '10px 10px',
-				display: 'flex',
-				flexDirection: 'column',
-				justifyContent: 'space-evenly',
-				alignItems: 'center',
-				borderRadius: '25px',
-			}}
-			variant='outlined'
-		>
+		<Card style={cardStyle} variant='outlined'>
 			<Slider
 				onChange={(e, val) => dispatch(changeStation(val))}
 				value={currentStation}
@@ -53,15 +51,5 @@ function ControlPanel() {
 		</Card>
 	)
 }
-
-// const mapStateToProps = (state) => ({
-// 	station: state.station,
-// })
-
-// const mapDispatchToProps = (dispatch) => {
-// 	return {
-// 		handleStationChange: () => dispatch({ type: 'change station up' }),
-// 	}
-// }
 
 export default ControlPanel
