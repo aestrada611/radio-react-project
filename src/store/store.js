@@ -7,9 +7,11 @@ const middleware = [thunk]
 // const initialState = {
 // 	station: 93.3,
 // }
-
+let peter
 const store = createStore(
 	rootReducer,
+
+
 	// initialState,
 	composeWithDevTools(applyMiddleware(...middleware))
 )
