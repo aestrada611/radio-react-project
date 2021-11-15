@@ -35,6 +35,18 @@ export default function ControlPanel(props) {
 		dispatch(changeStation(savedStations[0][savedSlot]))
 	}
 
+	const handleSaveReset = (savedSlot) => {
+		if (typeof savedStations[0][savedSlot] === 'number') {
+			savedStations[0][savedSlot] = null
+			isStationSaved[0][savedSlot] = false
+			forceUpdate()
+		}
+	}
+
+	const loopStations = () => {
+		dispatch(changeStation(savedStations[0].map((x) => x)))
+	}
+
 	const saveButtonStyle = {
 		color: 'orangered',
 		borderColor: 'orangered',
@@ -207,6 +219,9 @@ export default function ControlPanel(props) {
 						</td>
 					</tr>
 				</table>
+				{''}
+				<Button onClick={() => handleSaveReset(0)}>Click Me</Button>
+				<Button onClick={() => loopStations()}>Loop Stations</Button>
 			</div>
 		</Card>
 	)
